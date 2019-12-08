@@ -1,5 +1,8 @@
-project(AdventOfCode)
+cmake_minimum_required(VERSION 3.13)
 
-add_executable(advent_of_code
-    main.cpp
-    module.cpp)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+project(advent_of_code VERSION 0.1)
+
+add_subdirectory(src)
+

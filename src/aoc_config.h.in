@@ -1,0 +1,3 @@
+// the configured options and settings for advent_of_code
+#define advent_of_code_VERSION_MAJOR @advent_of_code_VERSION_MAJOR@
+#define advent_of_code_VERSION_MINOR @advent_of_code_VERSION_MINOR@
