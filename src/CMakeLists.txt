@@ -8,5 +8,5 @@ target_link_libraries(advent_of_code PUBLIC module)
 
 target_include_directories(advent_of_code PUBLIC
                            "${PROJECT_BINARY_DIR}/src"
-                           "${PROJECT_SOURCE_DIR}/module"
+                           "${PROJECT_SOURCE_DIR}/src/module"
                            )
