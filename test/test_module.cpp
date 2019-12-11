@@ -13,7 +13,8 @@ TEST(TestModule, ConstructorReturnsModule)
 }
 
 
-class ModuleNumberTest : public ::testing::TestWithParam<int>
+typedef std::pair<int, int> inout;
+class ModuleNumberTest : public ::testing::TestWithParam<inout>
 {
 public:
     ModuleNumberTest()
@@ -22,12 +23,15 @@ public:
 
 TEST_P(ModuleNumberTest, Examples)
 {
-    Module mod("mod1", GetParam());
-    std::cout << mod.calculate_fuel() << std::endl;
+    inout values = GetParam();
+
+    Module mod("mod1", values.first);
+
+    ASSERT_EQ(values.second, mod.calculate_fuel());
 }
 
 INSTANTIATE_TEST_SUITE_P(ExampleValues,
     ModuleNumberTest,
-    testing::Values(12, 14, 1969, 100756));
+    testing::Values(inout(12, 2), inout(14, 2), inout(1969, 654), inout(100756, 33583)));
 
 }
