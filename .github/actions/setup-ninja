@@ -1,0 +1,2 @@
+steps:
+    - run: apt-get install ninja-build
