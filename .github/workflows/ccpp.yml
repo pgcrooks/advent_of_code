@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - run: apt-get install ninja-build
+    - run: sudo apt-get install ninja-build
     - uses: actions/checkout@v1
     - name: build
       run: ninja
