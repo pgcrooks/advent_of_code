@@ -9,7 +9,7 @@ namespace advent
 class Module
 {
 public:
-    Module(std::string name, int mass);
+    Module(std::string const & name, int mass);
 
     int calculate_fuel() const;
 

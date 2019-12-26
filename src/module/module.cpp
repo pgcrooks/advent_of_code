@@ -6,7 +6,7 @@
 namespace advent
 {
 
-Module::Module(std::string name, int mass)
+Module::Module(std::string const & name, int mass)
 :   name_(name),
     mass_(mass)
 {
