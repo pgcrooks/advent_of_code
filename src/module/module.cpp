@@ -1,14 +1,12 @@
 #include <math.h>
-#include <string>
 
 #include "module.hpp"
 
 namespace advent
 {
 
-Module::Module(std::string const & name, int mass)
-:   name_(name),
-    mass_(mass)
+Module::Module(int mass)
+:   mass_(mass)
 {
 }
 

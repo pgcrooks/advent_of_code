@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         int total_fuel = 0;
         for (auto x: input_values)
         {
-            advent::Module mod("foo", x);
+            advent::Module mod(x);
             total_fuel += mod.calculate_fuel();
         }
 

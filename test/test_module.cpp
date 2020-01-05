@@ -9,7 +9,7 @@ namespace advent
 
 TEST(TestModule, ConstructorReturnsModule)
 {
-    advent::Module mod1("mod1", 1969);
+    advent::Module mod1(1969);
 }
 
 
@@ -25,7 +25,7 @@ TEST_P(ModuleNumberTest, Examples)
 {
     inout values = GetParam();
 
-    Module mod("mod1", values.first);
+    Module mod(values.first);
 
     ASSERT_EQ(values.second, mod.calculate_fuel());
 }
