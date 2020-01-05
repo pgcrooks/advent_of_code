@@ -32,6 +32,6 @@ TEST_P(ModuleNumberTest, Examples)
 
 INSTANTIATE_TEST_SUITE_P(ExampleValues,
     ModuleNumberTest,
-    testing::Values(inout(12, 2), inout(14, 2), inout(1969, 654), inout(100756, 33583)));
+    testing::Values(inout(12, 2), inout(14, 2), inout(1969, 966), inout(100756, 50346)));
 
 }
