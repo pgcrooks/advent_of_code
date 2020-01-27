@@ -1,1 +1,2 @@
+add_subdirectory(intcode)
 add_subdirectory(module)

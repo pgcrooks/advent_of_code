@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include <gtest/gtest.h>
 
 #include <module.hpp>
@@ -14,6 +12,7 @@ TEST(TestModule, ConstructorReturnsModule)
 
 
 typedef std::pair<int, int> inout;
+
 class ModuleNumberTest : public ::testing::TestWithParam<inout>
 {
 public:
@@ -30,7 +29,8 @@ TEST_P(ModuleNumberTest, Examples)
     ASSERT_EQ(values.second, mod.calculate_fuel());
 }
 
-INSTANTIATE_TEST_SUITE_P(ExampleValues,
+INSTANTIATE_TEST_SUITE_P(
+    ExampleValues,
     ModuleNumberTest,
     testing::Values(inout(12, 2), inout(14, 2), inout(1969, 966), inout(100756, 50346)));
 
