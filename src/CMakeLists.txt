@@ -1,4 +1,5 @@
 add_subdirectory(io)
+add_subdirectory(intcode)
 add_subdirectory(module)
 
 configure_file(aoc_config.h.in aoc_config.h)
