@@ -1,10 +1,27 @@
 #ifndef _INTCODE_HPP_
 #define _INTCODE_HPP_
 
+#include <exception>
+#include <string>
 #include <vector>
 
 namespace advent
 {
+
+class IntCodeException : public std::exception
+{
+public:
+    IntCodeException(std::string const & message)
+    :   message_(message)
+    {}
+
+    const char * what() const throw () {
+        return message_.c_str();
+    }
+
+private:
+    std::string message_;
+};
 
 /**
  * @brief  Opcode
