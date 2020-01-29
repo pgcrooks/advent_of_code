@@ -47,7 +47,7 @@ cxxopts::ParseResult parse_command_line(int argc, char *argv[])
     return result;
 }
 
-void run_day_1(std::vector<int> input)
+void run_day_1(std::vector<int> const & input)
 {
     std::cout << "Fuel Calculator" << std::endl;
 
@@ -61,11 +61,20 @@ void run_day_1(std::vector<int> input)
     std::cout << "Total fuel required: " << total_fuel << std::endl;
 }
 
-void run_day_2(std::vector<int> input)
+void run_day_2(std::vector<int> & input)
 {
     std::cout << "IntCode Computer" << std::endl;
 
-    advent::IntCode int_code();
+    advent::IntCode computer;
+    try
+    {
+        computer.process(input);
+        std::cout << "Position 0 = " << input[0] << std::endl;
+    }
+    catch(advent::IntCodeException const & e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }
 
 int main(int argc, char *argv[])
