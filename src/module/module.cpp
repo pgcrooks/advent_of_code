@@ -1,6 +1,6 @@
-#include <math.h>
-
 #include "module.hpp"
+
+#include <math.h>
 
 namespace advent
 {

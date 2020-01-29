@@ -5,10 +5,7 @@
 namespace advent
 {
 
-IntCode::IntCode()
-{}
-
-void IntCode::process(std::vector<int> & input)
+void IntCode::process(std::vector<int> & input) const
 {
     int index = 0;
     while (index < input.size())

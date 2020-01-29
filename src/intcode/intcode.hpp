@@ -41,11 +41,9 @@ enum opcode
 class IntCode
 {
 public:
-    IntCode();
+    IntCode() {};
 
-    void process(std::vector<int> & input);
-
-private:
+    void process(std::vector<int> & input) const;
 };
 
 }

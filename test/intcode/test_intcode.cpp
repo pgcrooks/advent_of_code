@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 
 #include <intcode.hpp>
-#include <iostream>
 
 namespace advent
 {
@@ -39,23 +38,8 @@ TEST_P(IntCodeTest, WIP)
     std::vector<int> input = values.first;
     std::vector<int> expected_output = values.second;
 
-    std::cout << "BEFORE: ";
-    for (auto x: input)
-    {
-        std::cout << x << ", ";
-    }
-    std::cout << std::endl;
-
     int_code_.process(input);
-
     EXPECT_EQ(expected_output, input);
-
-    std::cout << "AFTER: ";
-    for (auto x: input)
-    {
-        std::cout << x << ", ";
-    }
-    std::cout << std::endl;
 }
 
 INSTANTIATE_TEST_SUITE_P(
