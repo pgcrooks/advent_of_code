@@ -32,34 +32,36 @@ cxxopts::ParseResult parse_command_line(int argc, char *argv[])
         exit(0);
     }
 
+    if (!result.count("day"))
+    {
+        std::cout << "A day must be provided, exit." << std::endl;
+        exit(1);
+    }
+
+    if (!result.count("file"))
+    {
+        std::cout << "An input file must be provided, exit." << std::endl;
+        exit(1);
+    }
+
     return result;
 }
 
-void run_day_1()
+void run_day_1(std::vector<int> input)
 {
     std::cout << "Fuel Calculator" << std::endl;
 
-    try
+    int total_fuel = 0;
+    for (auto x: input)
     {
-        advent::Reader reader("/home/pgcrooks/code/advent_of_code/input.txt");
-        std::vector<int> input_values = reader.get_input();
-
-        int total_fuel = 0;
-        for (auto x: input_values)
-        {
-            advent::Module mod(x);
-            total_fuel += mod.calculate_fuel();
-        }
-
-        std::cout << "Total fuel required: " << total_fuel << std::endl;
+        advent::Module mod(x);
+        total_fuel += mod.calculate_fuel();
     }
-    catch(advent::ReaderException)
-    {
-        std::cerr << "Failed to read input data" << std::endl;
-    }    
+
+    std::cout << "Total fuel required: " << total_fuel << std::endl;
 }
 
-void run_day_2()
+void run_day_2(std::vector<int> input)
 {
     std::cout << "IntCode Computer" << std::endl;
 
@@ -70,25 +72,30 @@ int main(int argc, char *argv[])
 {
     auto result = parse_command_line(argc, argv);
 
-    if (result.count("day"))
+    advent::Reader reader(result["file"].as<std::string>());
+    std::vector<int> input_values;
+
+    try
     {
-        switch (result["day"].as<int>())
-        {
-        case 1:
-            run_day_1();
-            break;
-
-        case 2:
-            run_day_2();
-            break;
-
-        default:
-            std::cout << "Unrecognised day." << std::endl;
-        }
+        input_values = reader.get_input();
     }
-    else
+    catch(const std::exception& e)
     {
-        std::cout << "A day must be provided, doing nothing" << std::endl;
+        std::cerr << "Reader failed: " << e.what() << std::endl;
+    }
+
+    switch (result["day"].as<int>())
+    {
+    case 1:
+        run_day_1(input_values);
+        break;
+
+    case 2:
+        run_day_2(input_values);
+        break;
+
+    default:
+        std::cout << "Unrecognised day." << std::endl;
     }
 
     return 0;
