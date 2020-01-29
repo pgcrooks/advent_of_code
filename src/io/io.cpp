@@ -1,10 +1,8 @@
+#include "io.hpp"
+
 #include <fstream>
 #include <string>
 #include <vector>
-
-#include "io.hpp"
-
-#include <iostream> //TODO
 
 namespace advent
 {
@@ -21,7 +19,7 @@ std::vector<int> Reader::get_input() const
 {
     std::vector<int> data;
 
-    std::ifstream input_data("/home/pgcrooks/code/advent_of_code/input.txt");
+    std::ifstream input_data(data_file_);
     std::string line;
     if (input_data.is_open())
     {
